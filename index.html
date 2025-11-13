@@ -797,84 +797,38 @@
       margin-bottom: 0.9rem;
     }
 
-    form {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.75rem;
-    }
-
-    .field-group {
+    .lead-actions {
       display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      font-size: 0.78rem;
-    }
-
-    label {
-      color: rgba(209,213,219,0.94);
-    }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.75rem;
-    }
-
-    @media (min-width: 640px) {
-      .field-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    input, select, textarea {
-      border-radius: 10px;
-      border: 1px solid rgba(51,65,85,0.95);
-      background: rgba(15,23,42,0.95);
-      padding: 0.6rem 0.6rem;
-      font-family: inherit;
-      font-size: 0.82rem;
-      color: var(--fg);
-      outline: none;
-      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: rgba(148,163,184,0.9);
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent-soft);
-      background: rgba(15,23,42,1);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 90px;
-      max-height: 220px;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 0.7rem;
     }
 
     .lead-disclaimer {
       font-size: 0.7rem;
       color: var(--muted);
       line-height: 1.6;
-      margin-top: 0.4rem;
+      margin-top: 0.6rem;
     }
 
-    .lead-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      align-items: center;
-      margin-top: 0.4rem;
+    /* NEW: Email template styling (replaces form) */
+    .template-box {
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15,23,42,0.98);
+      padding: 0.85rem 0.9rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      color: rgba(229,231,235,0.95);
+      white-space: pre-wrap;
+      line-height: 1.6;
+      overflow-x: auto;
     }
 
-    .hint-text {
-      font-size: 0.7rem;
-      color: var(--muted);
+    .template-box strong {
+      color: var(--accent);
+      font-weight: 600;
     }
 
     /* Footer */
@@ -1327,32 +1281,19 @@
           <div class="section-eyebrow">Lead capture</div>
           <div class="section-title">Start a quote or project</div>
           <div class="section-body">
-            Use the form below as a guide and email your details directly, or click any button to open
-            an email pre-addressed to our team. The more specific you are, the faster we can respond
-            with a precise path forward.
+            We don’t use a web form. All quotes and projects start with a direct email so that details are
+            clear from the first contact. Use the outline below as a template when you email
+            <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>.
           </div>
         </div>
 
         <div class="contact-layout">
           <div>
             <div class="contact-note">
-              <strong>Direct email:</strong>
-              <a href="mailto:andrew@haz3.com">andrew@haz3.com</a><br />
-              Please include:
-              <ul class="about-list" style="margin-top:0.45rem;">
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span>Business name, address, and point of contact.</span>
-                </li>
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span>Type of hazardous waste and estimated volumes.</span>
-                </li>
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span>Desired timing (one-time project or ongoing service).</span>
-                </li>
-              </ul>
+              <strong>Direct email only:</strong> there is no form submission on this page, which means your
+              information is shared only through your own email client. Copy the template and send it to:
+              <br /><br />
+              <strong>Email:</strong> <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>
             </div>
 
             <div class="contact-meta">
@@ -1371,89 +1312,62 @@
             </div>
           </div>
 
-          <aside class="lead-card" aria-label="Lead capture form">
-            <div class="lead-title">Outline your project</div>
+          <aside class="lead-card" aria-label="Email formatting guide">
+            <div class="lead-title">How to format your email</div>
             <div class="lead-sub">
-              You can copy this structure into your email, or submit via a mail client
-              using the buttons below.
+              Copy the structure below into your email, replace the placeholders with your details, and send to
+              <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>.
             </div>
 
-            <!-- Form is illustrative and uses mailto: to open the client's email program -->
-            <form action="mailto:andrew@haz3.com" method="post" enctype="text/plain">
-              <div class="field-row">
-                <div class="field-group">
-                  <label for="name">Contact name</label>
-                  <input id="name" name="Contact name" type="text" placeholder="Name" />
-                </div>
-                <div class="field-group">
-                  <label for="company">Company / facility</label>
-                  <input id="company" name="Company" type="text" placeholder="Business or facility name" />
-                </div>
-              </div>
+            <div class="template-box">
+<strong>To:</strong> andrew@haz3.com
+<strong>Subject:</strong> Hazardous Waste – Quote Request (Your Company Name)
 
-              <div class="field-row">
-                <div class="field-group">
-                  <label for="email">Email</label>
-                  <input id="email" name="Email" type="email" placeholder="you@example.com" />
-                </div>
-                <div class="field-group">
-                  <label for="phone">Phone</label>
-                  <input id="phone" name="Phone" type="tel" placeholder="(xxx) xxx xxxx" />
-                </div>
-              </div>
+<strong>1. Contact information</strong>
+- Contact name: [Your full name]
+- Company / facility: [Legal name]
+- Phone: [Direct line]
+- Email: [Best reply email]
 
-              <div class="field-group">
-                <label for="location">Facility location (city, county)</label>
-                <input id="location" name="Location" type="text" placeholder="City, Napa County / Solano County" />
-              </div>
+<strong>2. Facility location</strong>
+- Address: [Street, City, State, ZIP]
+- County: [Napa County or Solano County]
+- Site access notes: [Gates, hours, loading dock, etc.]
 
-              <div class="field-row">
-                <div class="field-group">
-                  <label for="serviceType">Service needed</label>
-                  <select id="serviceType" name="Service type">
-                    <option value="">Select an option</option>
-                    <option>Transportation & disposal</option>
-                    <option>Disposal only</option>
-                    <option>One-time project / clean-out</option>
-                    <option>Ongoing scheduled service</option>
-                    <option>Other / not sure</option>
-                  </select>
-                </div>
-                <div class="field-group">
-                  <label for="timing">Timing</label>
-                  <select id="timing" name="Timing">
-                    <option value="">Select timing</option>
-                    <option>As soon as possible</option>
-                    <option>Within 30 days</option>
-                    <option>Within 60–90 days</option>
-                    <option>Exploratory / planning</option>
-                  </select>
-                </div>
-              </div>
+<strong>3. Hazardous waste details</strong>
+- Waste type(s): [Brief description and any known codes]
+- Approximate volume: [Drums, totes, gallons, etc.]
+- Frequency: [One-time / recurring – how often?]
+- Container situation: [Existing containers vs. need containers]
 
-              <div class="field-group">
-                <label for="details">Waste description & details</label>
-                <textarea id="details" name="Waste details" placeholder="Briefly describe the hazardous waste, estimated volumes, and any access or scheduling constraints."></textarea>
-              </div>
+<strong>4. Timing & constraints</strong>
+- Desired timeframe: [As soon as possible / within 30 days / other]
+- Operating hours for pickup: [Days & time window]
+- Any special constraints: [Production schedules, shutdown, etc.]
 
-              <div class="lead-actions">
-                <button type="submit" class="btn">
-                  <span class="btn-icon">✉️</span>
-                  <span>Send via email client</span>
-                </button>
-                <a href="mailto:andrew@haz3.com?subject=Quote%20Request%20-%20America%20Hazardous%20Waste%20Solutions"
-                   class="btn btn-outline">
-                  <span class="btn-icon">📧</span>
-                  <span>Open blank quote email</span>
-                </a>
-              </div>
+<strong>5. Additional context (optional)</strong>
+- How you’ve handled this waste before:
+- Any documents or manifests you can share:
+- Any questions you want answered in the quote:
+            </div>
 
-              <div class="lead-disclaimer">
-                Submitting will open your default email program with this information included in the body.
-                If that is not convenient for your system, email
-                <a href="mailto:andrew@haz3.com">andrew@haz3.com</a> directly using your own format.
-              </div>
-            </form>
+            <div class="lead-actions">
+              <a href="mailto:andrew@haz3.com?subject=Hazardous%20Waste%20-%20Quote%20Request%20(Your%20Company%20Name)"
+                 class="btn">
+                <span class="btn-icon">✉️</span>
+                <span>Open blank email</span>
+              </a>
+              <a href="mailto:andrew@haz3.com?subject=Hazardous%20Waste%20-%20Project%20Inquiry%20(Your%20Company%20Name)"
+                 class="btn btn-outline">
+                <span class="btn-icon">📁</span>
+                <span>Start a project</span>
+              </a>
+            </div>
+
+            <div class="lead-disclaimer">
+              This site does not collect or store your information. All details are shared only through the
+              email you send from your own system.
+            </div>
           </aside>
         </div>
       </section>
