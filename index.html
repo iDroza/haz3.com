@@ -14,8 +14,9 @@
       --card-bg: #10141d;
       --fg: #f5f7fa;
       --muted: #a3acbd;
-      --accent: #4fd1c5;
-      --accent-soft: rgba(79, 209, 197, 0.18);
+      /* Purple accent */
+      --accent: #8b5cf6;
+      --accent-soft: rgba(139, 92, 246, 0.22);
       --border-subtle: rgba(255,255,255,0.06);
       --border-strong: rgba(255,255,255,0.12);
       --danger: #f97373;
@@ -30,7 +31,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
       color: var(--fg);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -70,8 +71,8 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(2,6,23,0.9), rgba(2,6,23,0.75), transparent);
-      border-bottom: 1px solid rgba(148,163,184,0.15);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.75), transparent);
+      border-bottom: 1px solid rgba(148,163,184,0.18);
     }
 
     .header-inner {
@@ -93,7 +94,7 @@
       height: 34px;
       border-radius: 10px;
       border: 1px solid rgba(148,163,184,0.5);
-      background: radial-gradient(circle at 25% 0%, rgba(79,209,197,0.25), transparent 60%), #020617;
+      background: radial-gradient(circle at 25% 0%, rgba(139,92,246,0.35), transparent 60%), #020617;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -175,7 +176,7 @@
       padding: 0.35rem 0.85rem;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(148,163,184,0.5);
-      background: rgba(15,23,42,0.85);
+      background: rgba(15,23,42,0.9);
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -198,8 +199,9 @@
       padding: 0.65rem 1.1rem;
       border-radius: var(--radius-pill);
       border: 1px solid var(--border-strong);
-      background: linear-gradient(135deg, var(--accent), #22c55e);
-      color: #020617;
+      /* Google-like blue button */
+      background: linear-gradient(135deg, #1a73e8, #2563eb);
+      color: #f9fafb;
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.06em;
@@ -227,10 +229,6 @@
     .btn-outline:hover {
       background: rgba(15,23,42,0.95);
       box-shadow: 0 12px 28px rgba(0,0,0,0.55);
-    }
-
-    .btn-icon {
-      font-size: 0.9rem;
     }
 
     /* Hero */
@@ -316,7 +314,7 @@
       border-radius: var(--radius-pill);
       padding: 0.35rem 0.7rem;
       border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.85);
+      background: rgba(15,23,42,0.9);
       color: var(--muted);
       display: inline-flex;
       align-items: center;
@@ -355,7 +353,7 @@
     /* Hero Card (Right) */
     .hero-card {
       border-radius: 20px;
-      background: radial-gradient(circle at top left, rgba(79,209,197,0.12), transparent 60%), #020617;
+      background: radial-gradient(circle at top left, rgba(139,92,246,0.2), transparent 65%), #020617;
       border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-soft);
       padding: 1.5rem 1.4rem 1.4rem;
@@ -392,7 +390,7 @@
       padding: 0.3rem 0.65rem;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(148,163,184,0.5);
-      background: rgba(15,23,42,0.85);
+      background: rgba(15,23,42,0.9);
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--muted);
@@ -408,7 +406,7 @@
       padding: 0.6rem 0.5rem;
       border-radius: 14px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.9);
+      background: rgba(15,23,42,0.95);
     }
 
     .metric-label {
@@ -433,7 +431,7 @@
       border-radius: 12px;
       border: 1px dashed rgba(148,163,184,0.5);
       padding: 0.55rem 0.75rem;
-      background: rgba(15,23,42,0.85);
+      background: rgba(15,23,42,0.9);
       line-height: 1.5;
     }
 
@@ -508,7 +506,7 @@
     .about-card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.9);
+      background: rgba(15,23,42,0.96);
       padding: 1.4rem 1.4rem 1.3rem;
       box-shadow: 0 14px 40px rgba(0,0,0,0.5);
       font-size: 0.85rem;
@@ -580,7 +578,7 @@
     .card {
       border-radius: 14px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.96);
+      background: rgba(15,23,42,0.98);
       padding: 0.9rem 0.95rem 0.9rem;
       font-size: 0.8rem;
       color: var(--muted);
@@ -614,7 +612,7 @@
       border-radius: 12px;
       border: 1px dashed rgba(148,163,184,0.6);
       padding: 0.6rem 0.8rem;
-      background: rgba(15,23,42,0.9);
+      background: rgba(15,23,42,0.96);
       margin-top: 0.8rem;
       line-height: 1.6;
     }
@@ -647,7 +645,7 @@
       padding: 0.75rem 0.8rem;
       border-radius: 14px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.9);
+      background: rgba(15,23,42,0.96);
     }
 
     .step-index {
@@ -671,7 +669,7 @@
     .counties-card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top, rgba(79,209,197,0.12), transparent 70%), rgba(15,23,42,0.96);
+      background: radial-gradient(circle at top, rgba(139,92,246,0.22), transparent 70%), rgba(15,23,42,0.98);
       padding: 1.1rem 1.1rem 1rem;
       font-size: 0.82rem;
       color: var(--muted);
@@ -695,7 +693,7 @@
     .chip-light {
       padding: 0.2rem 0.6rem;
       border-radius: var(--radius-pill);
-      background: rgba(15,23,42,0.7);
+      background: rgba(15,23,42,0.85);
       border: 1px solid rgba(148,163,184,0.55);
       font-size: 0.68rem;
       text-transform: uppercase;
@@ -780,7 +778,7 @@
     .lead-card {
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.97);
+      background: rgba(15,23,42,0.99);
       padding: 1.2rem 1.1rem 1.1rem;
       box-shadow: 0 18px 50px rgba(0,0,0,0.6);
     }
@@ -812,11 +810,10 @@
       margin-top: 0.6rem;
     }
 
-    /* NEW: Email template styling (replaces form) */
     .template-box {
       border-radius: 12px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.98);
+      background: rgba(15,23,42,1);
       padding: 0.85rem 0.9rem;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.78rem;
@@ -833,8 +830,8 @@
 
     /* Footer */
     footer {
-      border-top: 1px solid rgba(30,64,175,0.9);
-      background: radial-gradient(circle at top, rgba(15,23,42,0.9), #020617 60%, #000 100%);
+      border-top: 1px solid rgba(88,28,135,0.9);
+      background: radial-gradient(circle at top, rgba(30,64,175,0.35), #020617 55%, #000 100%);
       padding: 1.4rem 0 1.5rem;
       font-size: 0.75rem;
       color: rgba(148,163,184,0.95);
@@ -925,7 +922,6 @@
         <a href="#contact">Lead Capture</a>
       </nav>
       <a href="mailto:andrew@haz3.com?subject=Start%20a%20Quote%20-%20America%20Hazardous%20Waste%20Solutions" class="btn header-cta">
-        <span class="btn-icon">✉️</span>
         <span>Start a Quote</span>
       </a>
     </div>
@@ -971,16 +967,13 @@
             <div class="hero-actions">
               <a href="mailto:andrew@haz3.com?subject=Start%20a%20Quote%20-%20America%20Hazardous%20Waste%20Solutions"
                  class="btn">
-                <span class="btn-icon">➡️</span>
                 <span>Start a Quote</span>
               </a>
               <a href="mailto:andrew@haz3.com?subject=Start%20a%20Project%20-%20America%20Hazardous%20Waste%20Solutions"
                  class="btn btn-outline">
-                <span class="btn-icon">📁</span>
                 <span>Start a Project</span>
               </a>
               <a href="#contact" class="btn btn-outline">
-                <span class="btn-icon">📝</span>
                 <span>Request Details</span>
               </a>
             </div>
@@ -1267,7 +1260,6 @@
 
             <div style="margin-top:0.9rem;">
               <a href="mailto:andrew@haz3.com?subject=Service%20Area%20Question%20-%20America%20Hazardous%20Waste%20Solutions" class="btn btn-outline">
-                <span class="btn-icon">📍</span>
                 <span>Ask about your facility</span>
               </a>
             </div>
@@ -1354,12 +1346,10 @@
             <div class="lead-actions">
               <a href="mailto:andrew@haz3.com?subject=Hazardous%20Waste%20-%20Quote%20Request%20(Your%20Company%20Name)"
                  class="btn">
-                <span class="btn-icon">✉️</span>
                 <span>Open blank email</span>
               </a>
               <a href="mailto:andrew@haz3.com?subject=Hazardous%20Waste%20-%20Project%20Inquiry%20(Your%20Company%20Name)"
                  class="btn btn-outline">
-                <span class="btn-icon">📁</span>
                 <span>Start a project</span>
               </a>
             </div>
