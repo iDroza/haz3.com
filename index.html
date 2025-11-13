@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>American Hazardous Waste Solutions | Since 2012</title>
-
-  <!-- Favicon (optional) -->
-  <!-- <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" /> -->
+  <title>American Hazardous Waste Solutions | Hazardous Waste Disposal & Transport</title>
 
   <style>
     :root{
-      --bg:#050509;
-      --fg:#f7f7f7;
+      --bg:#020617;
+      --fg:#f9fafb;
       --muted:#9ca3af;
       --accent:#22c55e;
-      --accent-soft:rgba(34,197,94,0.16);
-      --border:rgba(148,163,184,0.4);
-      --border-soft:rgba(148,163,184,0.15);
-      --shadow:0 18px 50px rgba(0,0,0,0.55);
-      --card-radius:22px;
-      --max-width:920px;
-      --transition:220ms ease-out;
+      --border:rgba(148,163,184,0.35);
+      --shadow:0 18px 40px rgba(0,0,0,0.65);
+      --radius:22px;
+      --max-width:780px;
     }
 
     *{
@@ -28,519 +22,262 @@
     }
 
     html,body{
-      height:100%;
       margin:0;
       padding:0;
-      background:radial-gradient(circle at top, #111827 0, var(--bg) 55%);
+      height:100%;
+      background:radial-gradient(circle at top, #111827 0, var(--bg) 60%);
       color:var(--fg);
       font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
       -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
     }
 
     body{
       display:flex;
-      flex-direction:column;
       align-items:center;
-      justify-content:space-between;
-      padding:20px 16px 18px;
+      justify-content:center;
+      padding:20px 14px;
     }
 
-    .frame{
+    .shell{
       width:100%;
       max-width:var(--max-width);
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      flex:1 0 auto;
+    }
+
+    .card{
+      background:linear-gradient(145deg, #020617, #020617);
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      padding:20px 18px 18px;
     }
 
     header{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding:4px 2px;
-      font-size:13px;
+      gap:10px;
+      margin-bottom:18px;
+      font-size:12px;
       text-transform:uppercase;
-      letter-spacing:.14em;
+      letter-spacing:.16em;
       color:var(--muted);
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:9px;
-      font-weight:600;
+      gap:8px;
     }
 
-    .brand-mark{
-      width:22px;
-      height:22px;
+    .mark{
+      width:20px;
+      height:20px;
       border-radius:999px;
-      border:1px solid rgba(34,197,94,0.4);
+      border:1px solid rgba(34,197,94,0.6);
       background:
         radial-gradient(circle at 30% 20%, rgba(248,250,252,0.9) 0, transparent 40%),
         radial-gradient(circle at 70% 80%, rgba(34,197,94,0.8) 0, transparent 45%),
         #020617;
-      box-shadow:0 0 0 1px rgba(15,23,42,0.6), 0 0 18px rgba(34,197,94,0.4);
+      box-shadow:0 0 14px rgba(34,197,94,0.55);
     }
 
-    .brand span{
-      opacity:0.95;
+    .brand-name{
+      font-weight:600;
+      color:var(--fg);
+      letter-spacing:.12em;
     }
 
-    .tagline{
-      opacity:0.7;
+    .since{
+      font-size:11px;
+      color:var(--muted);
       white-space:nowrap;
     }
 
     main{
-      flex:1 0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:6px 0 12px;
-    }
-
-    .hero-card{
-      width:100%;
-      background:linear-gradient(145deg, rgba(15,23,42,0.9), rgba(15,23,42,0.5));
-      border-radius:var(--card-radius);
-      border:1px solid var(--border-soft);
-      box-shadow:var(--shadow);
-      padding:22px 20px 20px;
-      backdrop-filter:blur(18px);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      border-radius:inherit;
-      background:radial-gradient(circle at top left, rgba(34,197,94,0.22), transparent 55%);
-      mix-blend-mode:screen;
-      opacity:0.85;
-      pointer-events:none;
-    }
-
-    .hero-inner{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      z-index:1;
-    }
-
-    .pill-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-    }
-
-    .pill{
-      padding:4px 9px;
-      border-radius:999px;
-      border:1px solid var(--border-soft);
-      background:rgba(15,23,42,0.75);
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      color:var(--muted);
-    }
-
-    .pill-dot{
-      width:6px;
-      height:6px;
-      border-radius:999px;
-      background:var(--accent);
-      box-shadow:0 0 0 4px rgba(34,197,94,0.25);
-    }
-
-    .pill strong{
-      color:var(--fg);
-      font-weight:600;
-      letter-spacing:.18em;
-    }
-
-    .hero-main{
       display:flex;
       flex-direction:column;
       gap:14px;
     }
 
     .eyebrow{
-      font-size:12px;
+      font-size:11px;
       text-transform:uppercase;
-      letter-spacing:.18em;
+      letter-spacing:.2em;
       color:var(--muted);
-      opacity:0.9;
     }
 
     h1{
       margin:0;
-      font-size:clamp(24px, 4.1vw, 34px);
-      line-height:1.08;
-      font-weight:700;
+      font-size:clamp(24px,4vw,30px);
+      line-height:1.15;
     }
 
     .accent{
       color:var(--accent);
     }
 
-    .since{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--muted);
-      display:flex;
-      align-items:center;
-      gap:9px;
-    }
-
-    .since-line{
-      flex:1;
-      height:1px;
-      background:linear-gradient(to right, rgba(148,163,184,0.5), transparent);
-    }
-
-    .subcopy{
+    .sub{
       font-size:14px;
       color:var(--muted);
-      max-width:520px;
+      max-width:540px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(0,0.95fr);
-      gap:18px;
-      margin-top:8px;
-      align-items:flex-start;
-    }
-
-    .panel{
-      border-radius:16px;
-      border:1px solid var(--border-soft);
-      background:rgba(15,23,42,0.7);
-      padding:12px 12px 11px;
-    }
-
-    .panel h2{
-      margin:0 0 8px;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--muted);
-    }
-
-    .list{
-      list-style:none;
+    .points{
+      margin:8px 0 0;
       padding:0;
-      margin:0;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      font-size:13px;
-    }
-
-    .list li{
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-    }
-
-    .badge{
-      min-width:6px;
-      height:6px;
-      border-radius:999px;
-      margin-top:5px;
-      background:var(--accent-soft);
-      border:1px solid var(--accent);
-    }
-
-    .list span{
-      color:var(--fg);
-      opacity:0.92;
-    }
-
-    .list small{
-      display:block;
-      color:var(--muted);
-      font-size:11px;
-    }
-
-    .service-area{
+      list-style:none;
       display:flex;
       flex-wrap:wrap;
-      gap:6px;
-      margin-top:4px;
-    }
-
-    .chip{
-      border-radius:999px;
-      border:1px dashed rgba(148,163,184,0.5);
-      padding:4px 9px;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--muted);
-    }
-
-    .cta-wrap{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .cta-line{
+      gap:8px 16px;
       font-size:13px;
-      color:var(--muted);
     }
 
-    .cta-primary{
+    .points li::before{
+      content:"•";
+      margin-right:6px;
+      color:var(--accent);
+    }
+
+    .region{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+    }
+
+    .region span{
+      color:var(--fg);
+    }
+
+    .cta-row{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+
+    .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:9px 14px;
+      padding:9px 16px;
       border-radius:999px;
-      border:1px solid rgba(34,197,94,0.75);
-      background:radial-gradient(circle at 10% 0, rgba(248,250,252,0.14) 0, transparent 45%), linear-gradient(135deg, rgba(34,197,94,0.9), rgba(22,163,74,0.95));
+      border:1px solid rgba(34,197,94,0.9);
+      background:linear-gradient(135deg, rgba(34,197,94,1), rgba(21,128,61,1));
       font-size:13px;
       font-weight:600;
       text-transform:uppercase;
       letter-spacing:.16em;
       text-decoration:none;
       color:#020617;
-      box-shadow:0 12px 30px rgba(34,197,94,0.5);
-      transition:transform var(--transition), box-shadow var(--transition), background var(--transition);
+      box-shadow:0 12px 30px rgba(34,197,94,0.45);
       cursor:pointer;
       white-space:nowrap;
     }
 
-    .cta-primary span{
+    .btn span{
       margin-left:6px;
-      font-size:14px;
     }
 
-    .cta-primary:hover{
-      transform:translateY(-1px);
-      box-shadow:0 16px 40px rgba(34,197,94,0.6);
-      background:radial-gradient(circle at 0 0, rgba(248,250,252,0.18) 0, transparent 45%), linear-gradient(135deg, rgba(34,197,94,1), rgba(21,128,61,1));
-    }
-
-    .cta-secondary{
-      font-size:11px;
+    .inline{
+      font-size:12px;
       color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.16em;
     }
 
-    .cta-secondary code{
+    .inline code{
       font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
       font-size:11px;
-      color:var(--fg);
-      background:rgba(15,23,42,0.85);
+      background:#020617;
       padding:3px 6px;
       border-radius:999px;
       border:1px solid rgba(148,163,184,0.4);
+      color:var(--fg);
     }
 
     footer{
-      width:100%;
-      max-width:var(--max-width);
-      margin:0 auto;
-      padding:4px 2px 0;
-      border-top:1px solid rgba(31,41,55,0.9);
+      margin-top:10px;
       font-size:11px;
       color:var(--muted);
       display:flex;
-      flex-wrap:wrap;
-      align-items:center;
       justify-content:space-between;
       gap:8px;
-    }
-
-    .footer-main{
-      display:flex;
       flex-wrap:wrap;
-      gap:8px;
-      align-items:center;
+      padding:0 2px;
     }
 
-    .dot{
-      width:3px;
-      height:3px;
-      border-radius:999px;
-      background:rgba(148,163,184,0.8);
-    }
-
-    .footer-right{
-      text-align:right;
-      opacity:0.85;
-    }
-
-    /* Simple “cursor” pulse for the brand mark, subtle */
-    @keyframes pulse{
-      0%{ box-shadow:0 0 0 0 rgba(34,197,94,0.55); }
-      70%{ box-shadow:0 0 0 10px rgba(34,197,94,0); }
-      100%{ box-shadow:0 0 0 0 rgba(34,197,94,0); }
-    }
-
-    .brand-mark{
-      animation:pulse 3s infinite;
-    }
-
-    /* Basic responsiveness */
-    @media (max-width:720px){
+    @media (max-width:640px){
       body{
-        padding:16px 12px 14px;
+        padding:16px 10px;
       }
-      .hero-card{
-        padding:18px 16px 16px;
+      .card{
+        padding:18px 14px 16px;
       }
-      .grid{
-        grid-template-columns:minmax(0,1fr);
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
       }
       footer{
         flex-direction:column;
-        align-items:flex-start;
-      }
-      .footer-right{
-        text-align:left;
       }
     }
   </style>
 </head>
 <body>
-  <div class="frame">
-    <header>
-      <div class="brand">
-        <div class="brand-mark"></div>
-        <span>American Hazardous Waste Solutions</span>
-      </div>
-      <div class="tagline">Brokered Hazardous Waste Disposal &amp; Transport</div>
-    </header>
-
-    <main>
-      <section class="hero-card" aria-label="American Hazardous Waste Solutions landing">
-        <div class="hero-inner">
-          <div class="pill-row">
-            <div class="pill">
-              <div class="pill-dot"></div>
-              <strong>Since&nbsp;2012</strong>
-              <span>Hazardous&nbsp;Waste</span>
-            </div>
-            <div class="pill">RCRA-Compliant Coordination</div>
-            <div class="pill">Solano &amp; Napa County Focus</div>
-          </div>
-
-          <div class="hero-main">
-            <div class="eyebrow">Non-transporting hazardous waste broker</div>
-            <h1>
-              Coordinating <span class="accent">hazardous waste</span> disposal
-              with precision, from generator to final&nbsp;TSDF.
-            </h1>
-            <div class="since">
-              Established 2012
-              <div class="since-line"></div>
-              Operated under AHWS Limited Liability Co.
-            </div>
-            <p class="subcopy">
-              We sit between <strong>generators</strong>, <strong>transporters</strong> and
-              <strong>permitted disposal facilities</strong>—designing compliant, cost-conscious
-              hazardous waste solutions for industrial, commercial and municipal clients.
-            </p>
-          </div>
-
-          <div class="grid">
-            <div class="panel">
-              <h2>Who we coordinate</h2>
-              <ul class="list">
-                <li>
-                  <div class="badge"></div>
-                  <div>
-                    <span>Generators</span>
-                    <small>Manufacturing, industrial, laboratories, municipalities and contractors producing hazardous waste streams.</small>
-                  </div>
-                </li>
-                <li>
-                  <div class="badge"></div>
-                  <div>
-                    <span>Transporters</span>
-                    <small>Properly permitted hazardous waste haulers with proven safety and regulatory track records.</small>
-                  </div>
-                </li>
-                <li>
-                  <div class="badge"></div>
-                  <div>
-                    <span>TSDFs</span>
-                    <small>Treatment, storage and disposal facilities matched to your specific waste codes, volumes and schedules.</small>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="service-area">
-                <div class="chip">Solano County</div>
-                <div class="chip">Napa County</div>
-                <div class="chip">Northern California Corridor</div>
-              </div>
-            </div>
-
-            <div class="panel">
-              <h2>Request a profile &amp; quote</h2>
-              <div class="cta-wrap">
-                <div class="cta-line">
-                  Share your <strong>waste profile</strong> (codes, volumes, frequency) and current program.
-                  We map a disposal and transportation solution around regulatory, logistical and budget constraints.
-                </div>
-                <a
-                  class="cta-primary"
-                  href="mailto:info@example.com?subject=Hazardous%20Waste%20Quote%20Request&body=Please%20include%20waste%20codes%2C%20approximate%20volumes%20and%20pickup%20frequency."
-                >
-                  Email for coordination <span>&rarr;</span>
-                </a>
-                <div class="cta-secondary">
-                  Or attach a recent manifest / profile and reference:
-                  <code>"AHWS – American Hazardous Waste Solutions"</code>
-                </div>
-                <div class="cta-line" style="font-size:11px;">
-                  <!-- Replace with your actual phone & email -->
-                  Phone and dedicated support details can be added here.
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="shell">
+    <div class="card">
+      <header>
+        <div class="brand">
+          <div class="mark"></div>
+          <div class="brand-name">American Hazardous Waste Solutions</div>
         </div>
-      </section>
-    </main>
+        <div class="since">In hazardous waste since 2012</div>
+      </header>
+
+      <main>
+        <div class="eyebrow">Hazardous waste disposal &amp; transport</div>
+
+        <h1>
+          Straightforward <span class="accent">hazardous waste</span> disposal
+          and transportation for Solano &amp; Napa County.
+        </h1>
+
+        <p class="sub">
+          American Hazardous Waste Solutions provides compliant, dependable
+          hazardous waste disposal and transportation services for industrial,
+          commercial and municipal generators. Operated under AHWS Limited
+          Liability Co.
+        </p>
+
+        <ul class="points">
+          <li>In the hazardous waste space since 2012</li>
+          <li>Focused on Solano and Napa County generators</li>
+          <li>Scheduled pickups and manifest-driven documentation</li>
+        </ul>
+
+        <div class="region">
+          Primary Service Area:
+          <span>Solano County · Napa County</span>
+        </div>
+
+        <div class="cta-row">
+          <!-- Replace phone/email with your real details -->
+          <a class="btn" href="tel:7070000000">
+            Call to schedule pickup <span>&rarr;</span>
+          </a>
+          <a class="inline" href="mailto:info@example.com?subject=Hazardous%20Waste%20Service%20Inquiry">
+            or email us your waste details: <code>info@example.com</code>
+          </a>
+        </div>
+      </main>
+    </div>
 
     <footer>
-      <div class="footer-main">
-        <span>© <span id="year"></span> American Hazardous Waste Solutions.</span>
-        <span class="dot"></span>
-        <span>Operated under AHWS Limited Liability Co.</span>
-      </div>
-      <div class="footer-right">
-        <div>Primary Service Area: Solano County &bull; Napa County</div>
-        <div>Focus: Hazardous Waste Brokerage, Transport Coordination &amp; Disposal Scheduling</div>
-      </div>
+      <div>© 2012–2025 American Hazardous Waste Solutions</div>
+      <div>Operated under AHWS Limited Liability Co.</div>
     </footer>
   </div>
-
-  <script>
-    // Keep year current
-    (function(){
-      var el = document.getElementById('year');
-      if(el){
-        el.textContent = new Date().getFullYear();
-      }
-    })();
-  </script>
 </body>
 </html>
