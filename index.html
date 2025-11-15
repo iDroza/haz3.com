@@ -1,1383 +1,327 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>America Hazardous Waste Solutions | Napa & Solano County</title>
-  <meta name="description" content="America Hazardous Waste Solutions (AHWS LLC) provides hazardous waste transportation and disposal services across Napa County and Solano County. In the industry since 2012. Request a quote today.">
-  <link rel="icon" type="image/png" sizes="32x32" href="AHWS%20EMBLEM.png" />
-
-  <style>
-    :root {
-      --bg: #05070a;
-      --bg-alt: #090c11;
-      --card-bg: #10141d;
-      --fg: #f5f7fa;
-      --muted: #a3acbd;
-      /* Purple accent */
-      --accent: #8b5cf6;
-      --accent-soft: rgba(139, 92, 246, 0.22);
-      --border-subtle: rgba(255,255,255,0.06);
-      --border-strong: rgba(255,255,255,0.12);
-      --danger: #f97373;
-      --max-width: 1080px;
-      --radius-lg: 18px;
-      --radius-pill: 999px;
-      --shadow-soft: 0 18px 45px rgba(0,0,0,0.45);
-      --transition-fast: 0.18s ease-out;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
-      color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Layout */
-    .page {
-      flex: 1 0 auto;
-    }
-
-    .shell {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    @media (min-width: 1024px) {
-      .shell {
-        padding: 0 2rem;
-      }
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.75), transparent);
-      border-bottom: 1px solid rgba(148,163,184,0.18);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 0;
-      gap: 1.5rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .brand-mark {
-      width: 68px;
-      height: 34px;
-      border-radius: 10px;
-      border: 1px solid rgba(148,163,184,0.5);
-      background: radial-gradient(circle at 25% 0%, rgba(139,92,246,0.35), transparent 60%), #020617;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-title {
-      font-size: 0.98rem;
-      font-weight: 700;
-    }
-
-    .brand-sub {
-      font-size: 0.7rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    nav {
-      display: none;
-      gap: 1.25rem;
-      font-size: 0.82rem;
-    }
-
-    nav a {
-      position: relative;
-      color: var(--muted);
-      padding-bottom: 0.15rem;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 1px;
-      width: 0;
-      background: var(--fg);
-      transition: width var(--transition-fast);
-      opacity: 0.8;
-    }
-
-    nav a:hover {
-      color: var(--fg);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .header-cta {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      nav {
-        display: flex;
-      }
-      .header-cta {
-        display: inline-flex;
-      }
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148,163,184,0.5);
-      background: rgba(15,23,42,0.9);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px var(--accent-soft);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.65rem 1.1rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-strong);
-      /* Google-like blue button */
-      background: linear-gradient(135deg, #1a73e8, #2563eb);
-      color: #f9fafb;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: var(--shadow-soft);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast), background 0.25s ease-out;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.06);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.7);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--fg);
-      border: 1px solid var(--border-strong);
-      box-shadow: none;
-    }
-
-    .btn-outline:hover {
-      background: rgba(15,23,42,0.95);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.55);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 3rem 0 2.5rem;
-    }
-
-    @media (min-width: 992px) {
-      .hero {
-        padding: 4rem 0 3.5rem;
-      }
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr);
-      gap: 2.5rem;
-    }
-
-    @media (min-width: 992px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-        align-items: center;
-        gap: 3.2rem;
-      }
-    }
-
-    .hero-eyebrow {
-      margin-bottom: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .hero-eyebrow span {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .hero-title {
-      font-size: 2.1rem;
-      line-height: 1.08;
-      margin: 0 0 0.75rem;
-      letter-spacing: -0.03em;
-    }
-
-    @media (min-width: 768px) {
-      .hero-title {
-        font-size: 2.7rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .hero-title {
-        font-size: 3rem;
-      }
-    }
-
-    .hero-title span.highlight {
-      color: var(--accent);
-    }
-
-    .hero-kicker {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 34rem;
-      line-height: 1.6;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 1.8rem;
-      font-size: 0.75rem;
-    }
-
-    .hero-badge {
-      border-radius: var(--radius-pill);
-      padding: 0.35rem 0.7rem;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.9);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .hero-badge strong {
-      color: var(--fg);
-      font-weight: 600;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      align-items: center;
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-secondary {
-      font-size: 0.78rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    .hero-secondary span.dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(148,163,184,0.7);
-    }
-
-    /* Hero Card (Right) */
-    .hero-card {
-      border-radius: 20px;
-      background: radial-gradient(circle at top left, rgba(139,92,246,0.2), transparent 65%), #020617;
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
-      padding: 1.5rem 1.4rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.3rem;
-    }
-
-    @media (min-width: 992px) {
-      .hero-card {
-        padding: 1.7rem 1.6rem 1.5rem;
-      }
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .hero-card-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .hero-card-caption {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .hero-chip {
-      font-size: 0.7rem;
-      padding: 0.3rem 0.65rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148,163,184,0.5);
-      background: rgba(15,23,42,0.9);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.8rem;
-    }
-
-    .metric {
-      padding: 0.6rem 0.5rem;
-      border-radius: 14px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.95);
-    }
-
-    .metric-label {
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-bottom: 0.15rem;
-    }
-
-    .metric-value {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .metric-tag {
-      font-size: 0.68rem;
-      color: var(--muted);
-    }
-
-    .hero-note {
-      font-size: 0.7rem;
-      color: var(--muted);
-      border-radius: 12px;
-      border: 1px dashed rgba(148,163,184,0.5);
-      padding: 0.55rem 0.75rem;
-      background: rgba(15,23,42,0.9);
-      line-height: 1.5;
-    }
-
-    .hero-contact {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-      flex-wrap: wrap;
-    }
-
-    .hero-contact strong {
-      color: var(--fg);
-    }
-
-    .hero-contact a {
-      font-weight: 600;
-    }
-
-    /* Sections */
-    section {
-      padding: 2.5rem 0;
-    }
-
-    @media (min-width: 992px) {
-      section {
-        padding: 3rem 0;
-      }
-    }
-
-    .section-heading {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .section-eyebrow {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .section-title {
-      font-size: 1.3rem;
-      letter-spacing: -0.01em;
-    }
-
-    .section-body {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 40rem;
-      line-height: 1.6;
-    }
-
-    /* About / Assurance */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr);
-      gap: 1.8rem;
-    }
-
-    @media (min-width: 900px) {
-      .about-grid {
-        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      }
-    }
-
-    .about-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.96);
-      padding: 1.4rem 1.4rem 1.3rem;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.5);
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .about-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.6rem;
-      font-size: 0.95rem;
-      color: var(--fg);
-    }
-
-    .about-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.8rem 0 0;
-      display: grid;
-      gap: 0.35rem;
-    }
-
-    .about-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.45rem;
-      font-size: 0.8rem;
-    }
-
-    .about-list-bullet {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-      margin-top: 0.25rem;
-    }
-
-    .about-tagline {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.7rem;
-    }
-
-    /* Services */
-    .service-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr);
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 900px) {
-      .service-layout {
-        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      }
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.9rem;
-    }
-
-    @media (min-width: 720px) {
-      .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .card {
-      border-radius: 14px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.98);
-      padding: 0.9rem 0.95rem 0.9rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .card-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .card-title {
-      font-size: 0.88rem;
-      color: var(--fg);
-      font-weight: 600;
-    }
-
-    .card-foot {
-      margin-top: 0.25rem;
-      font-size: 0.76rem;
-      color: rgba(148,163,184,0.9);
-    }
-
-    .service-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-      border-radius: 12px;
-      border: 1px dashed rgba(148,163,184,0.6);
-      padding: 0.6rem 0.8rem;
-      background: rgba(15,23,42,0.96);
-      margin-top: 0.8rem;
-      line-height: 1.6;
-    }
-
-    /* Process / Counties */
-    .process-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr);
-      gap: 1.7rem;
-    }
-
-    @media (min-width: 900px) {
-      .process-grid {
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-      }
-    }
-
-    .steps {
-      display: grid;
-      gap: 0.7rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 0.7rem;
-      align-items: flex-start;
-      padding: 0.75rem 0.8rem;
-      border-radius: 14px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.96);
-    }
-
-    .step-index {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.65);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.76rem;
-      color: var(--muted);
-    }
-
-    .step-title {
-      font-size: 0.86rem;
-      color: var(--fg);
-      margin-bottom: 0.1rem;
-    }
-
-    .counties-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top, rgba(139,92,246,0.22), transparent 70%), rgba(15,23,42,0.98);
-      padding: 1.1rem 1.1rem 1rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.6);
-    }
-
-    .counties-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-      margin-bottom: 0.7rem;
-    }
-
-    .counties-title {
-      font-size: 0.95rem;
-      color: var(--fg);
-      font-weight: 600;
-    }
-
-    .chip-light {
-      padding: 0.2rem 0.6rem;
-      border-radius: var(--radius-pill);
-      background: rgba(15,23,42,0.85);
-      border: 1px solid rgba(148,163,184,0.55);
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .county-list {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.35rem;
-      margin: 0.5rem 0 0.8rem;
-    }
-
-    .county {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      padding: 0.35rem 0.1rem;
-      border-bottom: 1px dashed rgba(51,65,85,0.8);
-    }
-
-    .county:last-child {
-      border-bottom: none;
-    }
-
-    .county-name {
-      font-weight: 500;
-    }
-
-    .county-note {
-      font-size: 0.76rem;
-      color: rgba(148,163,184,0.9);
-    }
-
-    /* Contact / Lead Capture */
-    .contact-section {
-      padding-bottom: 3.5rem;
-    }
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr);
-      gap: 1.8rem;
-    }
-
-    @media (min-width: 900px) {
-      .contact-layout {
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      }
-    }
-
-    .contact-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-      max-width: 32rem;
-      line-height: 1.7;
-    }
-
-    .contact-meta {
-      display: grid;
-      gap: 0.6rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .contact-meta a {
-      font-weight: 600;
-      color: var(--fg);
-    }
-
-    .contact-meta .label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(148,163,184,0.9);
-      margin-bottom: 0.15rem;
-    }
-
-    .lead-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.99);
-      padding: 1.2rem 1.1rem 1.1rem;
-      box-shadow: 0 18px 50px rgba(0,0,0,0.6);
-    }
-
-    .lead-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .lead-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .lead-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      align-items: center;
-      margin-top: 0.7rem;
-    }
-
-    .lead-disclaimer {
-      font-size: 0.7rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-top: 0.6rem;
-    }
-
-    .template-box {
-      border-radius: 12px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,1);
-      padding: 0.85rem 0.9rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.78rem;
-      color: rgba(229,231,235,0.95);
-      white-space: pre-wrap;
-      line-height: 1.6;
-      overflow-x: auto;
-    }
-
-    .template-box strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(88,28,135,0.9);
-      background: radial-gradient(circle at top, rgba(30,64,175,0.35), #020617 55%, #000 100%);
-      padding: 1.4rem 0 1.5rem;
-      font-size: 0.75rem;
-      color: rgba(148,163,184,0.95);
-      flex-shrink: 0;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.7rem;
-      align-items: center;
-    }
-
-    @media (min-width: 768px) {
-      .footer-grid {
-        grid-template-columns: minmax(0, 1.4fr) auto;
-      }
-    }
-
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .footer-left span strong {
-      color: var(--fg);
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      justify-content: flex-start;
-      font-size: 0.75rem;
-    }
-
-    .footer-links a {
-      position: relative;
-    }
-
-    .footer-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 1px;
-      background: var(--fg);
-      opacity: 0.8;
-      transition: width var(--transition-fast);
-    }
-
-    .footer-links a:hover::after {
-      width: 100%;
-    }
-
-    /* Utility */
-    .muted {
-      color: var(--muted);
-    }
-
-    .accent {
-      color: var(--accent);
-    }
-
-    .stack-sm {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hazardous Waste Transportation &amp; Disposal | America Hazardous Waste Solutions</title>
+  <meta name="description" content="America Hazardous Waste Solutions provides hazardous waste transportation, disposal coordination, and documentation support across Solano, Napa, Sonoma, Contra Costa, Yolo, and Sacramento Counties." />
+  <link rel="icon" type="image/png" sizes="32x32" href="AHWS EMBLEM.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="America Hazardous Waste Solutions | Hazardous Waste Transportation &amp; Disposal" />
+  <meta property="og:description" content="Hazardous waste transportation and disposal for Solano, Napa, Sonoma, Contra Costa, Yolo, and Sacramento Counties since 2012." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.ahws-llc.com/" />
+  <meta property="og:image" content="https://www.ahws-llc.com/og-placeholder.jpg" />
 </head>
 <body>
-  <header>
-    <div class="shell header-inner">
-      <div class="brand">
-        <div class="brand-mark">AHWS</div>
-        <div class="brand-text">
-          <div class="brand-title">America Hazardous Waste Solutions</div>
-          <div class="brand-sub">Napa &amp; Solano County • Since 2012</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Lead Capture</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">America Hazardous Waste Solutions</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary">
+        <button class="nav-close" aria-label="Close navigation">&times;</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="service-areas.html">Service Areas</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
-      <a href="mailto:andrew@haz3.com?subject=Start%20a%20Quote%20-%20America%20Hazardous%20Waste%20Solutions" class="btn header-cta">
-        <span>Start a Quote</span>
-      </a>
     </div>
   </header>
 
-  <main class="page">
-    <div class="shell">
-      <!-- HERO -->
-      <section class="hero" id="top">
-        <div class="hero-grid">
-          <div>
-            <div class="hero-eyebrow">
-              <div class="pill">
-                <span class="pill-dot"></span>
-                <span>Hazardous Waste Transportation &amp; Disposal</span>
-              </div>
-              <span>Owned &amp; operated by AHWS Limited Liability Co.</span>
-            </div>
-
-            <h1 class="hero-title">
-              Regulated <span class="highlight">hazardous waste</span><br />
-              handled with precision.
-            </h1>
-
-            <p class="hero-kicker">
-              America Hazardous Waste Solutions provides compliant, reliable transportation
-              and disposal for hazardous waste across Napa County and Solano County.
-              In the industry since 2012, built to protect your people, property, and permits.
-            </p>
-
-            <div class="hero-badge-row">
-              <div class="hero-badge">
-                <strong>2012</strong> &nbsp;Established operational experience
-              </div>
-              <div class="hero-badge">
-                <strong>Napa &amp; Solano</strong> &nbsp;Primary service areas
-              </div>
-              <div class="hero-badge">
-                <strong>Business-to-Business</strong> &nbsp;Generators, transporters, disposers
-              </div>
-            </div>
-
-            <div class="hero-actions">
-              <a href="mailto:andrew@haz3.com?subject=Start%20a%20Quote%20-%20America%20Hazardous%20Waste%20Solutions"
-                 class="btn">
-                <span>Start a Quote</span>
-              </a>
-              <a href="mailto:andrew@haz3.com?subject=Start%20a%20Project%20-%20America%20Hazardous%20Waste%20Solutions"
-                 class="btn btn-outline">
-                <span>Start a Project</span>
-              </a>
-              <a href="#contact" class="btn btn-outline">
-                <span>Request Details</span>
-              </a>
-            </div>
-
-            <div class="hero-secondary">
-              <span>Need to talk through a specific waste stream?</span>
-              <span class="dot"></span>
-              <span>Call direct: <a href="tel:+15109355701">(510) 935&nbsp;5701</a></span>
-            </div>
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <h1>Hazardous Waste Transportation &amp; Disposal Since 2012</h1>
+          <p class="hero-subtitle">Serving Solano, Napa, Sonoma, Contra Costa, Yolo, and Sacramento Counties since 2012.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="contact.html">Request a Quote</a>
+            <a class="btn btn-secondary" href="#core-services" data-scroll>View Services</a>
           </div>
-
-          <aside class="hero-card" aria-label="Quick reference panel">
-            <div class="hero-card-header">
-              <div>
-                <div class="hero-card-title">Operational snapshot</div>
-                <div class="hero-card-caption">Focused footprint. Deep expertise.</div>
-              </div>
-              <div class="hero-chip">Since 2012</div>
-            </div>
-
-            <div class="hero-metrics">
-              <div class="metric">
-                <div class="metric-label">Primary counties</div>
-                <div class="metric-value">Napa, Solano</div>
-                <div class="metric-tag">Northern California</div>
-              </div>
-              <div class="metric">
-                <div class="metric-label">Core focus</div>
-                <div class="metric-value">Hazardous</div>
-                <div class="metric-tag">Regulated waste streams</div>
-              </div>
-              <div class="metric">
-                <div class="metric-label">Structure</div>
-                <div class="metric-value">AHWS LLC</div>
-                <div class="metric-tag">America Hazardous Waste Solutions</div>
-              </div>
-            </div>
-
-            <div class="hero-note">
-              We coordinate the right combination of generator, transporter, and disposal facility
-              for your specific waste profile, keeping you compliant while minimizing disruption to operations.
-            </div>
-
-            <div class="hero-contact">
-              <div>
-                <strong>Email:</strong>
-                <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>
-              </div>
-              <div>
-                <strong>Phone:</strong>
-                <a href="tel:+15109355701">(510) 935&nbsp;5701</a>
-              </div>
-            </div>
-          </aside>
+          <ul class="value-list" aria-label="Key value propositions">
+            <li><span aria-hidden="true">&bull;</span> Fast response scheduling for drums, totes, and bulk loads</li>
+            <li><span aria-hidden="true">&bull;</span> Safe handling practices grounded in industry training</li>
+            <li><span aria-hidden="true">&bull;</span> Documentation support from profiling to manifests</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ABOUT -->
-      <section id="about">
-        <div class="section-heading">
-          <div class="section-eyebrow">Who we are</div>
-          <div class="section-title">America Hazardous Waste Solutions</div>
-          <div class="section-body">
-            America Hazardous Waste Solutions is a hazardous waste transportation and disposal company
-            owned by <strong>AHWS Limited Liability Co.</strong> We operate with a focused footprint
-            across Napa County and Solano County, serving industrial, commercial, and institutional
-            generators who require disciplined, regulation-aligned waste handling.
-          </div>
+    <section class="badge-strip" aria-label="Trust and experience">
+      <div class="container">
+        <p class="badge-title">In the hazardous waste industry since 2012</p>
+        <div class="badge-grid" role="list">
+          <div class="badge" role="listitem">Transportation</div>
+          <div class="badge" role="listitem">Disposal Coordination</div>
+          <div class="badge" role="listitem">Regulatory Awareness</div>
+          <div class="badge" role="listitem">Documentation Support</div>
         </div>
+      </div>
+    </section>
 
-        <div class="about-grid">
-          <div class="about-card">
-            <h3>Built for regulatory environments</h3>
-            <div>
-              Since 2012, we’ve navigated evolving hazardous waste regulations, requirements, and expectations
-              across Northern California. Our role is to sit between generators, transporters, and disposers —
-              aligning logistics so your waste moves the right way, to the right place, with the right documentation.
-            </div>
+    <section class="section" id="core-services">
+      <div class="container">
+        <div class="section-intro">
+          <h2>Core Hazardous Waste Services</h2>
+          <p class="section-subtitle">End-to-end transportation and disposal coordination tailored to industrial, commercial, and municipal facilities.</p>
+        </div>
+        <div class="card-grid services">
+          <article class="card">
+            <h3>Hazardous Waste Transportation</h3>
+            <p>DOT-compliant pick-up and transport for drums, totes, and bulk liquid or solid wastes to permitted facilities.</p>
+            <a class="link-arrow" href="services.html">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>Bulk &amp; Drum Management</h3>
+            <p>Routine and project-based removal of drum inventories, tank clean-outs, and sludge shipments with proper labeling.</p>
+            <a class="link-arrow" href="services.html">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>Lab Packs &amp; Chemicals</h3>
+            <p>Segregation, packing, and transport of lab reagents, small containers, and aging inventories from research and QA labs.</p>
+            <a class="link-arrow" href="services.html">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>Universal Waste &amp; E-Waste</h3>
+            <p>Collection and downstream coordination for lamps, batteries, electronics, and other universal waste categories.</p>
+            <a class="link-arrow" href="services.html">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>Emergency Response Coordination</h3>
+            <p>Logistics support for emergency clean-up partners to move stabilized materials to proper disposal sites quickly.</p>
+            <a class="link-arrow" href="services.html">Learn more</a>
+          </article>
+          <article class="card">
+            <h3>Documentation &amp; Reporting</h3>
+            <p>Manifest preparation assistance, waste profiling coordination, and record retention guidance for audits and inspections.</p>
+            <a class="link-arrow" href="services.html">Learn more</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <ul class="about-list">
-              <li>
-                <span class="about-list-bullet"></span>
-                <span>Focus on Napa County and Solano County for faster, more predictable response times.</span>
-              </li>
-              <li>
-                <span class="about-list-bullet"></span>
-                <span>Attention to manifests, paperwork, and chain-of-custody so you stay audit-ready.</span>
-              </li>
-              <li>
-                <span class="about-list-bullet"></span>
-                <span>Coordination of transport and disposal tailored to the specific waste stream.</span>
-              </li>
+    <section class="section" aria-labelledby="industries-title">
+      <div class="container">
+        <div class="section-intro">
+          <h2 id="industries-title">Industries Served</h2>
+          <p class="section-subtitle">Trusted by EHS managers, plant leaders, and compliance teams throughout Northern California.</p>
+        </div>
+        <div class="card-grid industries-grid">
+          <article class="card">
+            <h3>Manufacturing</h3>
+            <p>Solvent wipes, paint waste, spent oils, and production residues removed on scheduled routes or project turnarounds.</p>
+          </article>
+          <article class="card">
+            <h3>Laboratories &amp; R&amp;D</h3>
+            <p>Lab packs, specialty chemicals, and small-quantity waste streams handled with inventory reconciliation support.</p>
+          </article>
+          <article class="card">
+            <h3>Healthcare &amp; Clinics</h3>
+            <p>Hazardous pharmaceuticals, expired chemicals, and ancillary universal waste coordinated with facility schedules.</p>
+          </article>
+          <article class="card">
+            <h3>Schools &amp; Universities</h3>
+            <p>Chemistry stockrooms, vocational labs, and maintenance shops supported with safe packing and disposal logistics.</p>
+          </article>
+          <article class="card">
+            <h3>Utilities &amp; Municipalities</h3>
+            <p>Water treatment residuals, transformer oils, and infrastructure project waste managed with documentation assistance.</p>
+          </article>
+          <article class="card">
+            <h3>Construction &amp; Contractors</h3>
+            <p>Lead-containing debris, contaminated soils, and coatings removed from jobsites with responsive scheduling.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="service-area-title">
+      <div class="container">
+        <div class="section-intro">
+          <h2 id="service-area-title">Northern California Service Footprint</h2>
+          <p class="section-subtitle">Strategically based in Solano County and supporting clients across nearby counties.</p>
+        </div>
+        <div class="service-area-grid">
+          <article class="service-area-card">
+            <h3>Solano County</h3>
+            <p>Headquartered to reach manufacturing, logistics, and municipal customers quickly.</p>
+            <ul>
+              <li>Fairfield</li>
+              <li>Vacaville</li>
+              <li>Vallejo</li>
+              <li>Dixon</li>
             </ul>
-
-            <div class="about-tagline">
-              You keep your operation moving. We keep your hazardous waste moving the right way.
-            </div>
-          </div>
-
-          <div class="about-card">
-            <h3>What you can expect from us</h3>
-            <div class="stack-sm">
-              <span>We understand that hazardous waste is not just a logistics issue — it is a compliance and risk issue. Our posture is straightforward:</span>
-              <ul class="about-list">
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span><strong>Clarity:</strong> We describe exactly what we can do, what we won’t do, and how it will be executed.</span>
-                </li>
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span><strong>Reliability:</strong> We focus on a defined geography rather than stretching thin across the entire state.</span>
-                </li>
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span><strong>Discipline:</strong> We prioritize correct handling over shortcuts that create liability later.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          </article>
+          <article class="service-area-card">
+            <h3>Napa County</h3>
+            <p>Support for production wineries, labs, and public agencies managing chemical and universal waste.</p>
+            <ul>
+              <li>Napa</li>
+              <li>American Canyon</li>
+              <li>St. Helena</li>
+              <li>Yountville</li>
+            </ul>
+          </article>
+          <article class="service-area-card">
+            <h3>Sonoma County</h3>
+            <p>Transportation for advanced manufacturing, food production, and public works operations.</p>
+            <ul>
+              <li>Santa Rosa</li>
+              <li>Rohnert Park</li>
+              <li>Petaluma</li>
+              <li>Healdsburg</li>
+            </ul>
+          </article>
+          <article class="service-area-card">
+            <h3>Contra Costa County</h3>
+            <p>Serving refineries, utilities, and infrastructure contractors with safe removal and manifest support.</p>
+            <ul>
+              <li>Richmond</li>
+              <li>Martinez</li>
+              <li>Concord</li>
+              <li>Pittsburg</li>
+            </ul>
+          </article>
+          <article class="service-area-card">
+            <h3>Yolo County</h3>
+            <p>Coordinating waste transportation for research campuses, ag processors, and municipal sites.</p>
+            <ul>
+              <li>Woodland</li>
+              <li>Davis</li>
+              <li>West Sacramento</li>
+              <li>Winters</li>
+            </ul>
+          </article>
+          <article class="service-area-card">
+            <h3>Sacramento County</h3>
+            <p>Reliable service for manufacturing corridors, healthcare systems, and construction projects.</p>
+            <ul>
+              <li>Sacramento</li>
+              <li>Rancho Cordova</li>
+              <li>Elk Grove</li>
+              <li>Folsom</li>
+            </ul>
+          </article>
         </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section id="services">
-        <div class="section-heading">
-          <div class="section-eyebrow">Services</div>
-          <div class="section-title">What we help you solve</div>
-          <div class="section-body">
-            Every hazardous waste stream creates a specific operational burden. Our work is to remove the
-            friction between your facility, the transporter, and the disposal site — so you can maintain
-            production, pass inspections, and protect your people.
-          </div>
+        <div class="section-actions">
+          <a class="btn btn-secondary" href="service-areas.html">Explore all service areas</a>
         </div>
+      </div>
+    </section>
 
-        <div class="service-layout">
-          <div class="cards">
-            <div class="card">
-              <div class="card-label">Core service</div>
-              <div class="card-title">Hazardous waste transportation coordination</div>
-              <div>
-                We arrange transportation for hazardous waste from your site to approved facilities,
-                aligning pickup schedules, container requirements, and routing with your operational constraints.
-              </div>
-              <div class="card-foot">For generators in Napa &amp; Solano County.</div>
-            </div>
-
-            <div class="card">
-              <div class="card-label">Core service</div>
-              <div class="card-title">Hazardous waste disposal facilitation</div>
-              <div>
-                We coordinate disposal with appropriate facilities based on your waste profile, volume,
-                and frequency, keeping you aligned with applicable standards and documentation requirements.
-              </div>
-              <div class="card-foot">Tailored to regulated waste streams.</div>
-            </div>
-
-            <div class="card">
-              <div class="card-label">Support</div>
-              <div class="card-title">Profile & stream review</div>
-              <div>
-                High-level review of your hazardous waste streams to identify appropriate routing, frequency,
-                and handling expectations for each category of waste being generated.
-              </div>
-              <div class="card-foot">Useful before scaling production or changing processes.</div>
-            </div>
-
-            <div class="card">
-              <div class="card-label">Support</div>
-              <div class="card-title">Project-based coordination</div>
-              <div>
-                One-time or recurring project support for shutdowns, clean-outs, and other non-routine events
-                that temporarily increase hazardous waste volumes or complexity.
-              </div>
-              <div class="card-foot">From planning to final pickup.</div>
-            </div>
-          </div>
-
-          <div>
-            <div class="service-note">
-              <strong>Important:</strong> Every facility and waste stream is unique. When you reach out,
-              be prepared to share basic details on:
-              <ul class="about-list" style="margin-top:0.5rem;">
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span>Type(s) of hazardous waste generated.</span>
-                </li>
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span>Approximate volumes and frequency.</span>
-                </li>
-                <li>
-                  <span class="about-list-bullet"></span>
-                  <span>Location, site access, and any operational constraints.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <section class="section" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-intro">
+          <h2 id="process-title">How It Works</h2>
         </div>
-      </section>
-
-      <!-- PROCESS & COUNTIES -->
-      <section id="process">
-        <div class="section-heading">
-          <div class="section-eyebrow">How we work</div>
-          <div class="section-title">From first email to completed removal</div>
-          <div class="section-body">
-            We keep the process direct. The objective is to go from a clear description of your waste stream
-            to a confirmed plan for safe, compliant transportation and disposal.
-          </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Consultation &amp; Waste Profiling</h3>
+            <p>Review your waste streams, volumes, and timelines to determine the right transportation and disposal path.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Scheduling &amp; Regulatory Coordination</h3>
+            <p>Align pick-up windows, TSDF coordination, and documentation requirements before arrival on-site.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Transportation &amp; Disposal</h3>
+            <p>Professional drivers and handlers load, secure, and transport your hazardous waste to permitted facilities.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">4</div>
+            <h3>Documentation &amp; Follow-Up</h3>
+            <p>Receive manifests, bills of lading, and disposal confirmations, plus assistance with record retention.</p>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div class="process-grid">
-          <div class="steps">
-            <div class="step">
-              <div class="step-index">1</div>
-              <div>
-                <div class="step-title">Send a brief description of your situation</div>
-                <div>
-                  Email <a href="mailto:andrew@haz3.com">andrew@haz3.com</a> with a short description of
-                  your hazardous waste, approximate volumes, location, and any timing constraints.
-                </div>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-index">2</div>
-              <div>
-                <div class="step-title">Clarification & quote</div>
-                <div>
-                  We may request additional information, then outline the transportation and disposal approach
-                  along with pricing aligned to the waste stream and logistics.
-                </div>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-index">3</div>
-              <div>
-                <div class="step-title">Schedule & coordination</div>
-                <div>
-                  Once approved, we schedule transport and coordinate with the appropriate parties, ensuring
-                  documentation requirements are addressed and timelines are clear.
-                </div>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-index">4</div>
-              <div>
-                <div class="step-title">Execution & follow-up</div>
-                <div>
-                  Waste is moved as scheduled, and we remain available to address any follow-on needs or upcoming
-                  projects, especially for recurring generators in Napa and Solano.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <aside class="counties-card">
-            <div class="counties-header">
-              <div class="counties-title">Primary service areas</div>
-              <div class="chip-light">Northern California</div>
-            </div>
-
-            <div>
-              We actively service hazardous waste generators in the following counties:
-            </div>
-
-            <div class="county-list">
-              <div class="county">
-                <span class="county-name">Napa County</span>
-                <span class="county-note">Wineries, industrial, commercial</span>
-              </div>
-              <div class="county">
-                <span class="county-name">Solano County</span>
-                <span class="county-note">Industrial &amp; municipal corridors</span>
-              </div>
-            </div>
-
-            <div style="font-size:0.8rem;color:var(--muted);margin-top:0.4rem;">
-              If your facility is just outside these counties, include your address in the initial email
-              and we’ll confirm whether we can support the project or refer you appropriately.
-            </div>
-
-            <div style="margin-top:0.9rem;">
-              <a href="mailto:andrew@haz3.com?subject=Service%20Area%20Question%20-%20America%20Hazardous%20Waste%20Solutions" class="btn btn-outline">
-                <span>Ask about your facility</span>
-              </a>
-            </div>
-          </aside>
+    <section class="section">
+      <div class="container">
+        <div class="banner">
+          <h2>Need hazardous waste moved off-site safely and quickly?</h2>
+          <p>Our team responds within one business day to review your waste streams and schedule service.</p>
+          <a class="btn btn-primary" href="contact.html">Request a Quote</a>
         </div>
-      </section>
-
-      <!-- CONTACT / LEAD CAPTURE -->
-      <section id="contact" class="contact-section">
-        <div class="section-heading">
-          <div class="section-eyebrow">Lead capture</div>
-          <div class="section-title">Start a quote or project</div>
-          <div class="section-body">
-            We don’t use a web form. All quotes and projects start with a direct email so that details are
-            clear from the first contact. Use the outline below as a template when you email
-            <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>.
-          </div>
-        </div>
-
-        <div class="contact-layout">
-          <div>
-            <div class="contact-note">
-              <strong>Direct email only:</strong> there is no form submission on this page, which means your
-              information is shared only through your own email client. Copy the template and send it to:
-              <br /><br />
-              <strong>Email:</strong> <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>
-            </div>
-
-            <div class="contact-meta">
-              <div>
-                <div class="label">Email</div>
-                <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>
-              </div>
-              <div>
-                <div class="label">Phone</div>
-                <a href="tel:+15109355701">(510) 935&nbsp;5701</a>
-              </div>
-              <div>
-                <div class="label">Domain</div>
-                <span>haz3.com • America Hazardous Waste Solutions</span>
-              </div>
-            </div>
-          </div>
-
-          <aside class="lead-card" aria-label="Email formatting guide">
-            <div class="lead-title">How to format your email</div>
-            <div class="lead-sub">
-              Copy the structure below into your email, replace the placeholders with your details, and send to
-              <a href="mailto:andrew@haz3.com">andrew@haz3.com</a>.
-            </div>
-
-            <div class="template-box">
-<strong>To:</strong> andrew@haz3.com
-<strong>Subject:</strong> Hazardous Waste – Quote Request (Your Company Name)
-
-<strong>1. Contact information</strong>
-- Contact name: [Your full name]
-- Company / facility: [Legal name]
-- Phone: [Direct line]
-- Email: [Best reply email]
-
-<strong>2. Facility location</strong>
-- Address: [Street, City, State, ZIP]
-- County: [Napa County or Solano County]
-- Site access notes: [Gates, hours, loading dock, etc.]
-
-<strong>3. Hazardous waste details</strong>
-- Waste type(s): [Brief description and any known codes]
-- Approximate volume: [Drums, totes, gallons, etc.]
-- Frequency: [One-time / recurring – how often?]
-- Container situation: [Existing containers vs. need containers]
-
-<strong>4. Timing & constraints</strong>
-- Desired timeframe: [As soon as possible / within 30 days / other]
-- Operating hours for pickup: [Days & time window]
-- Any special constraints: [Production schedules, shutdown, etc.]
-
-<strong>5. Additional context (optional)</strong>
-- How you’ve handled this waste before:
-- Any documents or manifests you can share:
-- Any questions you want answered in the quote:
-            </div>
-
-            <div class="lead-actions">
-              <a href="mailto:andrew@haz3.com?subject=Hazardous%20Waste%20-%20Quote%20Request%20(Your%20Company%20Name)"
-                 class="btn">
-                <span>Open blank email</span>
-              </a>
-              <a href="mailto:andrew@haz3.com?subject=Hazardous%20Waste%20-%20Project%20Inquiry%20(Your%20Company%20Name)"
-                 class="btn btn-outline">
-                <span>Start a project</span>
-              </a>
-            </div>
-
-            <div class="lead-disclaimer">
-              This site does not collect or store your information. All details are shared only through the
-              email you send from your own system.
-            </div>
-          </aside>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="shell footer-grid">
-      <div class="footer-left">
-        <span><strong>America Hazardous Waste Solutions</strong> &nbsp;•&nbsp; Owned by AHWS Limited Liability Co.</span>
-        <span>Serving hazardous waste generators in Napa County and Solano County since 2012.</span>
-        <span class="muted">© <script>document.write(new Date().getFullYear());</script> AHWS Limited Liability Co. All rights reserved.</span>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">America Hazardous Waste Solutions</p>
+        <p class="footer-meta">AHWS LLC &bull; Based in Solano County, CA</p>
+        <p class="footer-meta">Serving: Solano, Napa, Sonoma, Contra Costa, Yolo, and Sacramento Counties</p>
       </div>
-      <div class="footer-links">
-        <a href="#top">Back to top</a>
-        <a href="mailto:andrew@haz3.com?subject=Start%20a%20Quote%20-%20America%20Hazardous%20Waste%20Solutions">Start a quote</a>
-        <a href="mailto:andrew@haz3.com?subject=Start%20a%20Project%20-%20America%20Hazardous%20Waste%20Solutions">Start a project</a>
-        <a href="tel:+15109355701">Call (510) 935&nbsp;5701</a>
+      <div>
+        <p class="footer-heading">Contact</p>
+        <ul class="footer-list">
+          <li><a href="tel:17075550123">(707) 555-0123</a> <!-- Placeholder phone number --></li>
+          <li><a href="mailto:info@ahws-llc.com">info@ahws-llc.com</a> <!-- Placeholder email address --></li>
+          <li>Request a quote response within one business day.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-heading">Navigate</p>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="service-areas.html">Service Areas</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
     </div>
+    <div class="container footer-bottom">
+      <p>Information provided is for general guidance and does not constitute legal advice. Consult appropriate regulatory agencies for specific compliance requirements.</p>
+    </div>
   </footer>
+
+  <!-- Update placeholder contact details in structured data for production deployment. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "America Hazardous Waste Solutions",
+    "legalName": "AHWS LLC",
+    "description": "Hazardous waste transportation and disposal coordination for Solano, Napa, Sonoma, Contra Costa, Yolo, and Sacramento Counties.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Placeholder Industrial Way",
+      "addressLocality": "Fairfield",
+      "addressRegion": "CA",
+      "postalCode": "94533",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      "Solano County",
+      "Napa County",
+      "Sonoma County",
+      "Contra Costa County",
+      "Yolo County",
+      "Sacramento County"
+    ],
+    "telephone": "707-555-0123",
+    "url": "https://www.ahws-llc.com/"
+  }
+  </script>
+  <script src="main.js" defer></script>
 </body>
 </html>
