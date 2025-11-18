@@ -1,13 +1,13 @@
 :root {
-  --color-bg: #f5f6fb;
-  --color-surface: #ffffff;
-  --color-surface-dark: #0b1020;
-  --color-text: #111827;
-  --color-muted: #6b7280;
-  --color-accent: #7c3aed;          /* primary purple */
-  --color-accent-light: #ede9fe;    /* soft lavender */
-  --color-secondary: #a855f7;       /* secondary purple */
-  --color-border: #e2e8f0;
+  --color-bg: #f3f4f6;                 /* light neutral background */
+  --color-surface: #ffffff;            /* cards, header, forms */
+  --color-surface-dark: #111827;       /* dark header/footer text */
+  --color-text: #111827;               /* primary body text */
+  --color-muted: #6b7280;              /* secondary text */
+  --color-accent: #2563eb;             /* professional blue */
+  --color-accent-light: #dbeafe;       /* soft blue tint */
+  --color-secondary: #16a34a;          /* clean environmental green */
+  --color-border: #e5e7eb;             /* subtle gray border */
   --max-width: 1200px;
   --font-base: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.08);
@@ -164,8 +164,8 @@ img {
 .hero {
   padding: clamp(4rem, 8vw, 6rem) 0 4rem;
   background:
-    radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 55%),
-    linear-gradient(135deg, #f5f3ff 0%, #eef2ff 100%);
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.16), transparent 55%),
+    linear-gradient(135deg, #f9fafb 0%, #eff6ff 100%);
 }
 
 .hero-content {
@@ -218,17 +218,17 @@ img {
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: #5b21b6;
+  background: #1d4ed8;
 }
 
 .btn-secondary {
-  background: rgba(124, 58, 237, 0.12);
+  background: rgba(37, 99, 235, 0.12);
   color: var(--color-accent);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background: rgba(124, 58, 237, 0.2);
+  background: rgba(37, 99, 235, 0.2);
 }
 
 .value-list {
@@ -470,7 +470,7 @@ img {
 }
 
 .service-table tbody th {
-  background: rgba(124, 58, 237, 0.08);
+  background: rgba(37, 99, 235, 0.08);
   color: var(--color-surface-dark);
   font-weight: 600;
 }
@@ -483,7 +483,7 @@ img {
   background: var(--color-accent-light);
   border-radius: var(--radius-md);
   padding: 1.5rem;
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   display: grid;
   gap: 1rem;
 }
@@ -518,13 +518,13 @@ img {
 
 .faq {
   border-radius: var(--radius-md);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   background: var(--color-surface);
   overflow: hidden;
 }
 
 .faq-item + .faq-item {
-  border-top: 1px solid rgba(124, 58, 237, 0.1);
+  border-top: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 .faq-question {
@@ -655,7 +655,7 @@ textarea:focus {
 .team-card {
   padding: 1.5rem;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(124, 58, 237, 0.18);
+  border: 1px solid rgba(37, 99, 235, 0.18);
   background: var(--color-surface);
   box-shadow: var(--shadow-sm);
 }
