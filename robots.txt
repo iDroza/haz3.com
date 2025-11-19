@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haz3.com/sitemap.xml
