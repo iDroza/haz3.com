@@ -167,6 +167,7 @@ p:last-child {
   gap: 0.75rem;
   padding: 0;
   min-height: 56px;
+  overflow: hidden;
 }
 
 .brand {
@@ -283,6 +284,8 @@ p:last-child {
 /* Header CTA (desktop) */
 .header-cta {
   display: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -1445,10 +1448,12 @@ textarea {
     padding: 0;
     align-items: center;
     gap: 0.25rem;
+    min-width: 0;
   }
 
   .nav-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 0;
     text-align: left;
     align-items: center;
